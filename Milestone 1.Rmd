@@ -1,23 +1,25 @@
 ---
 title: "Milestone 1"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 date: "2026-09-27"
 ---
 
 Team 11: Sadia Chowdhury and Yijun Zhang
 
-Project Option Selection: Scenario 3:  Environment and asthma in California
+1. Project Option Selection: Scenario 3:  Environment and asthma in California
 
-Link to git repository: https://github.com/gagajun/PHW251_Group_Project.git
+2. Link to git repository: https://github.com/gagajun/PHW251_Group_Project.git
 
-Meeting Planning: 
+3. Meeting Planning: 
  - Communication method: UC Berkeley email
  - Meeting times and frequency: Wednesday evenings (around 7PM) every other week; open to meeting weekly if necessary
  
-Roles:
+4. Roles:
  - Method for tracking progress: Yijun will schedule Zoom meetings and Sadia will schedule an appointment with course facilitators for questions 
  [planning on scheduling appointment with Will on Wednesday 10/8/26, as a check-in]
 
-Conflict Management:
+5. Conflict Management:
  - Plan to meet via Zoom, if any conflicts arise, and will seek advice from instructional team if necessary.
  
