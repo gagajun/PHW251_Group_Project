@@ -4,6 +4,8 @@ output: html_document
 date: "2026-09-27"
 ---
 
+Team 11: Sadia Chowdhury and Yijun Zhang
+
 Project Option Selection: Scenario 3:  Environment and asthma in California
 
 Link to git repository: https://github.com/gagajun/PHW251_Group_Project.git
@@ -18,8 +20,4 @@ Roles:
 
 Conflict Management:
  - Plan to meet via Zoom, if any conflicts arise, and will seek advice from instructional team if necessary.
- 
- 
- 
- 
  
