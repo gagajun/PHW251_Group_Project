@@ -1,8 +1,8 @@
 ---
 title: "Milestone 1"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 date: "2026-09-27"
 ---
 
@@ -22,4 +22,19 @@ Team 11: Sadia Chowdhury and Yijun Zhang
 
 5. Conflict Management:
  - Plan to meet via Zoom, if any conflicts arise, and will seek advice from instructional team if necessary.
+ 
+ 
+```{r}
+library(tidyverse)
+library(janitor)
+
+# Read data and clean the vairable names
+ces_measure <- read_csv("https://github.com/PHW290/phw251_projectdata/raw/refs/heads/main/scenario_3/calenviroscreen_measures_2021.csv") %>% clean_names()
+ces_scores_demog <- read_csv("https://github.com/PHW290/phw251_projectdata/raw/refs/heads/main/scenario_3/calenviroscreen_scores_demog_2021.csv") %>% clean_names()
+chhs_asthma <- read_csv("https://github.com/PHW290/phw251_projectdata/raw/refs/heads/main/scenario_3/chhs_asthma_ed.csv") %>% clean_names()
+
+
+
+```
+
  
