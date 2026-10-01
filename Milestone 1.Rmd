@@ -21,3 +21,5 @@ Roles:
 Conflict Management:
  - Plan to meet via Zoom, if any conflicts arise, and will seek advice from instructional team if necessary.
  
+ 
+ 
