@@ -1,0 +1,37 @@
+---
+title: "Milestone 2"
+output:
+  html_document: default
+  pdf_document: default
+date: "2026-10-05"
+---
+
+Description of datasets:
+
+Dataset 1: calenviroscreen_measures_2021.csv
+- This dataset comes from the California Office of Environmental Health Hazard Assessment (OEHHA) and is based on the California Communities Environmental Health Screening Tool (CalEnviroScreen 4.0). It includes the environmental, pollution, and related measures for California census tracts, using data from 2021 and earlier years depending on the specific measure. 
+- This dataset is related to our research questions because the environmental measures are needed to assess whether environmental conditions are associated with acute asthma. Each census tract is linked to its county, which allows us to summarize selected tract-level measures to the county level and compare them with county asthma ED rates. Additionally, measures that track closely with asthma ED rates may be worth investigating as potential targets for environmental intervention. 
+
+Dataset 2: calenviroscreen_scores_demong_2021.csv
+- This dataset also comes from the California Office of Environmental; Health Hazard Assessment (OEHHA) and contains tract-level CalEnviroScreen scores and demographic information for California census tracts in 2021. The overall CalEnviroScreen score combines pollution burden and population characteristics, and is calculated from the individual indicators included in the first dataset. 
+- This dataset is important for our research question because it provides an overall measure of environmental burden that can be compared with asthma outcomes. This addresses our first goal by providing a broad measure of cumulative environmental burden. Using the county assigned to each census tract, we will aggregate tract-level scores to county level and assess whether county environmental scores are correlated with asthma ED rates.
+
+Dataset 3: chhs_asthma_ed.csv
+- This dataset is from the California Health and Human Services (CHHS) Open Data Portal, published by the California Department of Public Health. It includes counts and age-adjusted rates (per 10,000 residents) of asthma ED visits statewide and by country for 2015 to 2020, stratified by age group and rate/ethnicity. 
+- This dataset is related to our research questions because it provides the health outcome for our analysis: county-level, age-adjusted asthma ED visit rates. By joining these rates to the county-level CalEnviroScreen scores and environmental measures derived from Datasets 1 and 2, we can assess whether counties with greater environmental burden, or higher levels of specific exposures, also experience higher rates of acute asthma. Because the data are stratified by age group and race/ethnicity, we can also examine these relationships within specific populations if needed, helping identify counties and environmental factors that warrant targeted intervention. It is important to note that the CalEnviroScreen data (Datasets 1 and 2) were released in 2021 but are built from indicator data collected in earlier years that vary by measure, while Dataset 3 includes asthma ED rates from 2015 to 2020. We will consider this difference in timing when selecting which year(s) of asthma data to compare with the CalEnviroScreen measures.
+
+
+
+
+
+```{r}
+library(tidyverse)
+library(janitor)
+
+# Read data and clean the variable names
+ces_measure <- read_csv("https://github.com/PHW290/phw251_projectdata/raw/refs/heads/main/scenario_3/calenviroscreen_measures_2021.csv") %>% clean_names()
+ces_scores_demog <- read_csv("https://github.com/PHW290/phw251_projectdata/raw/refs/heads/main/scenario_3/calenviroscreen_scores_demog_2021.csv") %>% clean_names()
+chhs_asthma <- read_csv("https://github.com/PHW290/phw251_projectdata/raw/refs/heads/main/scenario_3/chhs_asthma_ed.csv") %>% clean_names()
+
+```
+
