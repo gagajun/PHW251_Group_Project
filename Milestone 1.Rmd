@@ -1,25 +1,41 @@
 ---
 title: "Milestone 1"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 date: "2026-09-27"
 ---
 
 Team 11: Sadia Chowdhury and Yijun Zhang
 
-Project Option Selection: Scenario 3:  Environment and asthma in California
+1. Project Option Selection: Scenario 3:  Environment and asthma in California
 
-Link to git repository: https://github.com/gagajun/PHW251_Group_Project.git
+2. Link to git repository: https://github.com/gagajun/PHW251_Group_Project.git
 
-Meeting Planning: 
+3. Meeting Planning: 
  - Communication method: UC Berkeley email
  - Meeting times and frequency: Wednesday evenings (around 7PM) every other week; open to meeting weekly if necessary
  
-Roles:
+4. Roles:
  - Method for tracking progress: Yijun will schedule Zoom meetings and Sadia will schedule an appointment with course facilitators for questions 
  [planning on scheduling appointment with Will on Wednesday 10/8/26, as a check-in]
 
-Conflict Management:
+5. Conflict Management:
  - Plan to meet via Zoom, if any conflicts arise, and will seek advice from instructional team if necessary.
  
- 
+
+```{r}
+library(tidyverse)
+library(janitor)
+
+# Read data and clean the variable names
+ces_measure <- read_csv("https://github.com/PHW290/phw251_projectdata/raw/refs/heads/main/scenario_3/calenviroscreen_measures_2021.csv") %>% clean_names()
+ces_scores_demog <- read_csv("https://github.com/PHW290/phw251_projectdata/raw/refs/heads/main/scenario_3/calenviroscreen_scores_demog_2021.csv") %>% clean_names()
+chhs_asthma <- read_csv("https://github.com/PHW290/phw251_projectdata/raw/refs/heads/main/scenario_3/chhs_asthma_ed.csv") %>% clean_names()
+
+
+
+```
+
+
  
