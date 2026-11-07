@@ -1,0 +1,46 @@
+---
+title: "Milestone-3"
+output: html_document
+---
+
+*Team 11: Sadia Chowdhury and Yijun Zhang* 
+
+```{r echo=FALSE, include=FALSE}
+library(tidyverse)
+library(janitor)
+
+# Read data and clean the variable names
+ces_measure <- read_csv("https://github.com/PHW290/phw251_projectdata/raw/refs/heads/main/scenario_3/calenviroscreen_measures_2021.csv") %>% clean_names()
+ces_scores_demog <- read_csv("https://github.com/PHW290/phw251_projectdata/raw/refs/heads/main/scenario_3/calenviroscreen_scores_demog_2021.csv") %>% clean_names()
+chhs_asthma <- read_csv("https://github.com/PHW290/phw251_projectdata/raw/refs/heads/main/scenario_3/chhs_asthma_ed.csv") %>% clean_names()
+```
+
+**1. For Cal Enviro Screen datasets**
+
+1.1 Recode common variable(s) to be combined with other datasets
+```{r}
+# change county to title format
+ces_measure_clean <- ces_measure %>% 
+  rename(county = california_county)
+
+ces_scores_demog_clean <- ces_scores_demog %>% 
+  mutate(county = str_remove(county, " County"))
+
+table(ces_scores_demog$county)
+table(ces_scores_demog_clean$county)
+```
+
+1.2 Identify environmental measure(s) of interest and summarize into a county-level value
+```{r}
+
+```
+
+1.3 Summarize CalEnviroScreen score into a county level variable
+```{r}
+
+```
+
+NOTE: the methods for each summary variable (environmental measure and  CalEnviroScreen score) should be different (i.e. if you calculate the mean for one, please use another method for the other). If you look at more than one environmental measure you can re-use summarization methods for this. 
+
+**2. Asthma ED dataset**
+
