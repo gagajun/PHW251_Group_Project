@@ -1,9 +1,8 @@
 ---
 title: "Milestone-3"
-output: html_document
+format: html
+author: "Team 11: Sadia Chowdhury and Yijun Zhang"
 ---
-
-#### *Team 11: Sadia Chowdhury and Yijun Zhang*
 
 ```{r echo=FALSE, include=FALSE}
 library(tidyverse)
@@ -36,7 +35,7 @@ ces_scores_demog_clean <- ces_scores_demog %>%
   mutate(county = str_remove(county, " County"))
 ```
 
-### 1.2 Identify environmental measure(s) of interest and summarize into a county-level value 
+### 1.2 Identify environmental measure(s) of interest and summarize into a county-level value
 
 We chose 1) PM2.5 and 2) Drinking Water as the environmental measures.
 
