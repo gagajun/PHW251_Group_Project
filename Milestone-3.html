@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Team 11: Sadia Chowdhury and Yijun Zhang">
+
+<title>Milestone-3</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="Milestone-3_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Milestone-3_files/libs/quarto-html/quarto.js"></script>
+<script src="Milestone-3_files/libs/quarto-html/popper.min.js"></script>
+<script src="Milestone-3_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Milestone-3_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Milestone-3_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Milestone-3_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Milestone-3_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Milestone-3_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Milestone-3_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Milestone-3</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Team 11: Sadia Chowdhury and Yijun Zhang </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>#Data import</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read data and clean the variable names</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ces_measure <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://github.com/PHW290/phw251_projectdata/raw/refs/heads/main/scenario_3/calenviroscreen_measures_2021.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">clean_names</span>()</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ces_scores_demog <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://github.com/PHW290/phw251_projectdata/raw/refs/heads/main/scenario_3/calenviroscreen_scores_demog_2021.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">clean_names</span>()</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>chhs_asthma <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://github.com/PHW290/phw251_projectdata/raw/refs/heads/main/scenario_3/chhs_asthma_ed.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="for-cal-enviro-screen-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="for-cal-enviro-screen-datasets"><strong>1. For Cal Enviro Screen datasets</strong></h2>
+<p>Teams will be asked to summarize tract level environmental measures into county level measures and compare with asthma ED rates overall or by a specific strata. The first is to compare county asthma ED rates with a county CES measure to assess if there appears to be a correlation. The second is to compare asthma ED rates with county-level summaries for specific environmental measures to determine if those specific measures may be worth further investigation.</p>
+<section id="recode-common-variables-to-be-combined-with-other-datasets" class="level3">
+<h3 class="anchored" data-anchor-id="recode-common-variables-to-be-combined-with-other-datasets">1.1 Recode common variable(s) to be combined with other datasets</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># recode county to title format</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ces_measure_clean <span class="ot">&lt;-</span> ces_measure <span class="sc">%&gt;%</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">county =</span> california_county)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>ces_scores_demog_clean <span class="ot">&lt;-</span> ces_scores_demog <span class="sc">%&gt;%</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">county =</span> <span class="fu">str_remove</span>(county, <span class="st">" County"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="identify-environmental-measures-of-interest-and-summarize-into-a-county-level-value" class="level3">
+<h3 class="anchored" data-anchor-id="identify-environmental-measures-of-interest-and-summarize-into-a-county-level-value">1.2 Identify environmental measure(s) of interest and summarize into a county-level value</h3>
+<p>We chose 1) PM2.5 and 2) Drinking Water as the environmental measures.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ces_measure_recat <span class="ot">&lt;-</span>  ces_measure_clean <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(county) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">asthma_ed_visits =</span> <span class="fu">mean</span>(asthma, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">pm25 =</span> <span class="fu">mean</span>(pm2_5, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">drinking_water =</span> <span class="fu">mean</span>(drinking_water, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="summarize-calenviroscreen-score-into-a-county-level-variable" class="level3">
+<h3 class="anchored" data-anchor-id="summarize-calenviroscreen-score-into-a-county-level-variable">1.3 Summarize CalEnviroScreen score into a county level variable</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ces_scores_demog_recat <span class="ot">&lt;-</span> ces_scores_demog_clean <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(county) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">ces_score =</span> <span class="fu">median</span>(ces_4_0_score, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>NOTE: the methods for each summary variable (environmental measure and CalEnviroScreen score) should be different (i.e.&nbsp;if you calculate the mean for one, please use another method for the other). If you look at more than one environmental measure you can re-use summarization methods for this.</p>
+<p>We used mean for environmental measures, and used median for CES score.</p>
+</section>
+<section id="data-dictionary-based-on-clean-dataset-minimum-4-data-elements-including-variable-name-data-type-description" class="level3">
+<h3 class="anchored" data-anchor-id="data-dictionary-based-on-clean-dataset-minimum-4-data-elements-including-variable-name-data-type-description">Data dictionary based on clean dataset (minimum 4 data elements), including: Variable name; Data type; Description</h3>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>variable</th>
+<th>data type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>county</td>
+<td>character</td>
+<td>County of residence in California</td>
+</tr>
+<tr class="even">
+<td>ces_score</td>
+<td>numeric</td>
+<td>median CalEnviroScreen (CES) score for each county</td>
+</tr>
+<tr class="odd">
+<td>asthma_ed_visits</td>
+<td>numeric</td>
+<td>mean Age-adjusted rate of emergency department visits for asthma for each county</td>
+</tr>
+<tr class="even">
+<td>pm25</td>
+<td>numeric</td>
+<td>mean PM 2.5 for each county</td>
+</tr>
+<tr class="odd">
+<td>drinking_water</td>
+<td>numeric</td>
+<td>mean drinking water contaminant index for selected contaminants for each county</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="one-or-more-tables-with-descriptive-statistics-for-4-data-elements" class="level3">
+<h3 class="anchored" data-anchor-id="one-or-more-tables-with-descriptive-statistics-for-4-data-elements">One or more tables with descriptive statistics for 4 data elements</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>combined <span class="ot">&lt;-</span> <span class="fu">left_join</span>(ces_scores_demog_recat, ces_measure_recat, <span class="at">by =</span> <span class="st">"county"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>combined <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"variable"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"values"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(variable) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">min =</span> <span class="fu">min</span>(values),</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">q_1st =</span> <span class="fu">quantile</span>(values, <span class="fl">0.25</span>),</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean =</span> <span class="fu">mean</span>(values),</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">median =</span> <span class="fu">median</span>(values),</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">q_3rd =</span> <span class="fu">quantile</span>(values, <span class="fl">0.75</span>),</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd =</span> <span class="fu">sd</span>(values)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>            ) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"Sumamry of descriptive statistics for data elements"</span>,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Vairables"</span>, <span class="st">"Min"</span>, <span class="st">"1st Quantile"</span>, <span class="st">"Mean"</span>, <span class="st">"Median"</span>, <span class="st">"3rd Quantile"</span>, <span class="st">"Stdev"</span>),</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">digits =</span> <span class="dv">1</span>,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">align =</span> <span class="st">"cccccc"</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<caption>Sumamry of descriptive statistics for data elements</caption>
+<colgroup>
+<col style="width: 24%">
+<col style="width: 9%">
+<col style="width: 18%">
+<col style="width: 9%">
+<col style="width: 10%">
+<col style="width: 18%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Vairables</th>
+<th style="text-align: center;">Min</th>
+<th style="text-align: center;">1st Quantile</th>
+<th style="text-align: center;">Mean</th>
+<th style="text-align: center;">Median</th>
+<th style="text-align: center;">3rd Quantile</th>
+<th style="text-align: center;">Stdev</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">asthma_ed_visits</td>
+<td style="text-align: center;">21.2</td>
+<td style="text-align: center;">39.3</td>
+<td style="text-align: center;">52.6</td>
+<td style="text-align: center;">49.2</td>
+<td style="text-align: center;">65.4</td>
+<td style="text-align: center;">18.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ces_score</td>
+<td style="text-align: center;">8.3</td>
+<td style="text-align: center;">15.3</td>
+<td style="text-align: center;">22.2</td>
+<td style="text-align: center;">19.2</td>
+<td style="text-align: center;">26.5</td>
+<td style="text-align: center;">9.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">drinking_water</td>
+<td style="text-align: center;">176.3</td>
+<td style="text-align: center;">326.4</td>
+<td style="text-align: center;">436.4</td>
+<td style="text-align: center;">408.1</td>
+<td style="text-align: center;">528.1</td>
+<td style="text-align: center;">151.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">pm25</td>
+<td style="text-align: center;">3.1</td>
+<td style="text-align: center;">6.6</td>
+<td style="text-align: center;">8.1</td>
+<td style="text-align: center;">8.2</td>
+<td style="text-align: center;">9.1</td>
+<td style="text-align: center;">2.6</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="asthma-ed-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="asthma-ed-dataset"><strong>2. Asthma ED dataset</strong></h2>
+<p>The asthma ED dataset from the California Department of Health and Human Services reports the number and age-adjusted rate of emergency department visits for asthma by county, year (2015–2020), and demographic strata (total population, child vs.&nbsp;adult, age groups, and race/ethnicity). To compare it with the county-level CalEnviroScreen measures, we recode county names to match the CES datasets, fix values that read in incorrectly, keep only the most recent year and county-level rows, select the demographic strata of interest, and pivot the data so there is one row per county. Counts and rates for some small counties are suppressed for privacy and appear as missing values.</p>
+<section id="recode-common-variables-to-be-combined-with-other-datasets-1" class="level3">
+<h3 class="anchored" data-anchor-id="recode-common-variables-to-be-combined-with-other-datasets-1">2.1 Recode common variable(s) to be combined with other datasets</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># recode county to title case and remove extra spaces so it matches the CES datasets</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>chhs_asthma_clean <span class="ot">&lt;-</span> chhs_asthma <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">county =</span> <span class="fu">str_to_title</span>(<span class="fu">str_trim</span>(county)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="recode-values-that-are-reading-in-incorrectly" class="level3">
+<h3 class="anchored" data-anchor-id="recode-values-that-are-reading-in-incorrectly">2.2 Recode values that are reading in incorrectly</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>chhs_asthma_clean <span class="ot">&lt;-</span> chhs_asthma_clean <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">number_of_ed_visits =</span> <span class="fu">parse_number</span>(<span class="fu">as.character</span>(number_of_ed_visits)),</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">strata_name =</span> <span class="fu">gsub</span>(<span class="st">"[^ -~]+"</span>, <span class="st">"-"</span>, strata_name, <span class="at">useBytes =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">strata_name =</span> <span class="fu">if_else</span>(strata <span class="sc">==</span> <span class="st">"Total population"</span>, <span class="st">"All ages"</span>, strata_name))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="subset-to-most-recent-year-and-county-level-data" class="level3">
+<h3 class="anchored" data-anchor-id="subset-to-most-recent-year-and-county-level-data">2.3 Subset to most recent year and county level data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>chhs_asthma_recent <span class="ot">&lt;-</span> chhs_asthma_clean <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="fu">max</span>(year),          <span class="co"># most recent year (2020)</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>         county <span class="sc">!=</span> <span class="st">"California"</span>)     <span class="co"># remove the statewide total row</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="select-demographic-strata-of-interest" class="level3">
+<h3 class="anchored" data-anchor-id="select-demographic-strata-of-interest">2.4 Select demographic strata of interest</h3>
+<p>We chose to compare the total population, children (0–17 years), and adults (18+ years).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>chhs_asthma_strata <span class="ot">&lt;-</span> chhs_asthma_recent <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(strata <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Total population"</span>, <span class="st">"Child vs. adult"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">strata_name =</span> <span class="fu">case_when</span>(strata_name <span class="sc">==</span> <span class="st">"All ages"</span> <span class="sc">~</span> <span class="st">"total"</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                                 strata_name <span class="sc">==</span> <span class="st">"0-17 years"</span> <span class="sc">~</span> <span class="st">"child"</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                                 strata_name <span class="sc">==</span> <span class="st">"18+ years"</span> <span class="sc">~</span> <span class="st">"adult"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(county, strata_name, age_adjusted_ed_visit_rate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="pivot-table-to-only-include-one-row-per-county" class="level3">
+<h3 class="anchored" data-anchor-id="pivot-table-to-only-include-one-row-per-county">2.5 Pivot table to only include one row per county</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>chhs_asthma_recat <span class="ot">&lt;-</span> chhs_asthma_strata <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> strata_name,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> age_adjusted_ed_visit_rate,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">names_prefix =</span> <span class="st">"asthma_rate_"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">child_adult_diff =</span> asthma_rate_child <span class="sc">-</span> asthma_rate_adult,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">child_adult_ratio =</span> asthma_rate_child <span class="sc">/</span> asthma_rate_adult)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-dictionary-based-on-clean-dataset-minimum-4-data-elements-including-variable-name-data-type-description-1" class="level3">
+<h3 class="anchored" data-anchor-id="data-dictionary-based-on-clean-dataset-minimum-4-data-elements-including-variable-name-data-type-description-1">Data dictionary based on clean dataset (minimum 4 data elements), including: Variable name; Data type; Description</h3>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>variable</th>
+<th>data type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>county</td>
+<td>character</td>
+<td>County of residence in California</td>
+</tr>
+<tr class="even">
+<td>asthma_rate_total</td>
+<td>numeric</td>
+<td>Age-adjusted rate of ED visits for asthma per 10,000, total population, 2020</td>
+</tr>
+<tr class="odd">
+<td>asthma_rate_child</td>
+<td>numeric</td>
+<td>Age-adjusted rate of ED visits for asthma per 10,000, ages 0–17, 2020</td>
+</tr>
+<tr class="even">
+<td>asthma_rate_adult</td>
+<td>numeric</td>
+<td>Age-adjusted rate of ED visits for asthma per 10,000, ages 18+, 2020</td>
+</tr>
+<tr class="odd">
+<td>child_adult_diff</td>
+<td>numeric</td>
+<td>Child rate minus adult rate for each county</td>
+</tr>
+<tr class="even">
+<td>child_adult_ratio</td>
+<td>numeric</td>
+<td>Child rate divided by adult rate for each county</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="one-or-more-tables-with-descriptive-statistics-for-4-data-elements-1" class="level3">
+<h3 class="anchored" data-anchor-id="one-or-more-tables-with-descriptive-statistics-for-4-data-elements-1">One or more tables with descriptive statistics for 4 data elements</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>chhs_asthma_recat <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(asthma_rate_total, asthma_rate_child, asthma_rate_adult, child_adult_diff),</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"variable"</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"values"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(variable) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">min =</span> <span class="fu">min</span>(values, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">q_1st =</span> <span class="fu">quantile</span>(values, <span class="fl">0.25</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean =</span> <span class="fu">mean</span>(values, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">median =</span> <span class="fu">median</span>(values, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">q_3rd =</span> <span class="fu">quantile</span>(values, <span class="fl">0.75</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd =</span> <span class="fu">sd</span>(values, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>            ) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"Summary of descriptive statistics for asthma ED data elements"</span>,</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Variables"</span>, <span class="st">"Min"</span>, <span class="st">"1st Quartile"</span>, <span class="st">"Mean"</span>, <span class="st">"Median"</span>, <span class="st">"3rd Quartile"</span>, <span class="st">"Stdev"</span>),</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">digits =</span> <span class="dv">1</span>,</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">align =</span> <span class="st">"cccccc"</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<caption>Summary of descriptive statistics for asthma ED data elements</caption>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 9%">
+<col style="width: 18%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 18%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Variables</th>
+<th style="text-align: center;">Min</th>
+<th style="text-align: center;">1st Quartile</th>
+<th style="text-align: center;">Mean</th>
+<th style="text-align: center;">Median</th>
+<th style="text-align: center;">3rd Quartile</th>
+<th style="text-align: center;">Stdev</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">asthma_rate_adult</td>
+<td style="text-align: center;">0.0</td>
+<td style="text-align: center;">19.6</td>
+<td style="text-align: center;">26.8</td>
+<td style="text-align: center;">25.4</td>
+<td style="text-align: center;">31.5</td>
+<td style="text-align: center;">10.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">asthma_rate_child</td>
+<td style="text-align: center;">0.0</td>
+<td style="text-align: center;">17.4</td>
+<td style="text-align: center;">25.9</td>
+<td style="text-align: center;">23.2</td>
+<td style="text-align: center;">32.5</td>
+<td style="text-align: center;">13.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">asthma_rate_total</td>
+<td style="text-align: center;">0.0</td>
+<td style="text-align: center;">19.5</td>
+<td style="text-align: center;">26.6</td>
+<td style="text-align: center;">25.1</td>
+<td style="text-align: center;">32.8</td>
+<td style="text-align: center;">9.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">child_adult_diff</td>
+<td style="text-align: center;">-15.7</td>
+<td style="text-align: center;">-5.0</td>
+<td style="text-align: center;">0.1</td>
+<td style="text-align: center;">-2.1</td>
+<td style="text-align: center;">2.9</td>
+<td style="text-align: center;">9.4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Note: 2020 asthma ED visit rates were lower than in previous years, especially among children, likely reflecting reduced ED use and school closures during the COVID-19 pandemic. In 2020, child and adult rates were similar (mean difference ≈ 0), whereas child rates are typically substantially higher. The minimum value of 0 reflects Alpine County, and some small counties have suppressed rates (shown as missing).</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

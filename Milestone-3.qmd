@@ -10,7 +10,7 @@ library(janitor)
 library(kableExtra)
 ```
 
-Data import
+#Data import
 
 ```{r message=FALSE}
 # Read data and clean the variable names
@@ -95,3 +95,89 @@ combined %>%
 ```
 
 ## **2. Asthma ED dataset**
+
+The asthma ED dataset from the California Department of Health and Human Services reports the number and age-adjusted rate of emergency department visits for asthma by county, year (2015–2020), and demographic strata (total population, child vs. adult, age groups, and race/ethnicity). To compare it with the county-level CalEnviroScreen measures, we recode county names to match the CES datasets, fix values that read in incorrectly, keep only the most recent year and county-level rows, select the demographic strata of interest, and pivot the data so there is one row per county. Counts and rates for some small counties are suppressed for privacy and appear as missing values.
+
+### 2.1 Recode common variable(s) to be combined with other datasets
+
+```{r}
+# recode county to title case and remove extra spaces so it matches the CES datasets
+chhs_asthma_clean <- chhs_asthma %>% 
+  mutate(county = str_to_title(str_trim(county)))
+```
+
+### 2.2 Recode values that are reading in incorrectly
+
+```{r}
+chhs_asthma_clean <- chhs_asthma_clean %>% 
+  mutate(number_of_ed_visits = parse_number(as.character(number_of_ed_visits)),
+         strata_name = gsub("[^ -~]+", "-", strata_name, useBytes = TRUE),
+         strata_name = if_else(strata == "Total population", "All ages", strata_name))
+```
+
+### 2.3 Subset to most recent year and county level data
+
+```{r}
+chhs_asthma_recent <- chhs_asthma_clean %>% 
+  filter(year == max(year),          # most recent year (2020)
+         county != "California")     # remove the statewide total row
+```
+
+### 2.4 Select demographic strata of interest
+
+We chose to compare the total population, children (0–17 years), and adults (18+ years).
+
+```{r}
+chhs_asthma_strata <- chhs_asthma_recent %>% 
+  filter(strata %in% c("Total population", "Child vs. adult")) %>% 
+  mutate(strata_name = case_when(strata_name == "All ages" ~ "total",
+                                 strata_name == "0-17 years" ~ "child",
+                                 strata_name == "18+ years" ~ "adult")) %>% 
+  select(county, strata_name, age_adjusted_ed_visit_rate)
+```
+
+### 2.5 Pivot table to only include one row per county
+
+```{r}
+chhs_asthma_recat <- chhs_asthma_strata %>% 
+  pivot_wider(names_from = strata_name,
+              values_from = age_adjusted_ed_visit_rate,
+              names_prefix = "asthma_rate_") %>% 
+  mutate(child_adult_diff = asthma_rate_child - asthma_rate_adult,
+         child_adult_ratio = asthma_rate_child / asthma_rate_adult)
+```
+
+### Data dictionary based on clean dataset (minimum 4 data elements), including: Variable name; Data type; Description
+
+| variable | data type | description |
+|------------------------|------------------------|------------------------|
+| county | character | County of residence in California |
+| asthma_rate_total | numeric | Age-adjusted rate of ED visits for asthma per 10,000, total population, 2020 |
+| asthma_rate_child | numeric | Age-adjusted rate of ED visits for asthma per 10,000, ages 0–17, 2020 |
+| asthma_rate_adult | numeric | Age-adjusted rate of ED visits for asthma per 10,000, ages 18+, 2020 |
+| child_adult_diff | numeric | Child rate minus adult rate for each county |
+| child_adult_ratio | numeric | Child rate divided by adult rate for each county |
+
+### One or more tables with descriptive statistics for 4 data elements
+
+```{r}
+chhs_asthma_recat %>% 
+  pivot_longer(cols = c(asthma_rate_total, asthma_rate_child, asthma_rate_adult, child_adult_diff),
+               names_to = "variable",
+               values_to = "values") %>% 
+  group_by(variable) %>% 
+  summarise(min = min(values, na.rm = TRUE),
+            q_1st = quantile(values, 0.25, na.rm = TRUE),
+            mean = mean(values, na.rm = TRUE),
+            median = median(values, na.rm = TRUE),
+            q_3rd = quantile(values, 0.75, na.rm = TRUE),
+            sd = sd(values, na.rm = TRUE)
+            ) %>% 
+  kable(caption = "Summary of descriptive statistics for asthma ED data elements",
+        col.names = c("Variables", "Min", "1st Quartile", "Mean", "Median", "3rd Quartile", "Stdev"),
+        digits = 1,
+        align = "cccccc"
+        )
+```
+
+Note: 2020 asthma ED visit rates were lower than in previous years, especially among children, likely reflecting reduced ED use and school closures during the COVID-19 pandemic. In 2020, child and adult rates were similar (mean difference ≈ 0), whereas child rates are typically substantially higher. The minimum value of 0 reflects Alpine County, and some small counties have suppressed rates (shown as missing).
