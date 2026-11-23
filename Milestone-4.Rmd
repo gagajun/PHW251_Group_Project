@@ -68,13 +68,10 @@ chhs_asthma_prep <- chhs_asthma %>%
   select(county, age_adjusted_ed_visit_rate)
 
 # Join 3 data sets
-data_joined = left_join(x = chhs_asthma_prep,
-                        y = ces_scores_demog_prep,
-                        by = "county")
+data_joined <- chhs_asthma_prep %>% 
+  left_join(y = ces_scores_demog_prep, by = "county") %>% 
+  left_join(y = ces_measure_prep, by = "county")
 
-data_joined = left_join(x = data_joined,
-                        y = ces_measure_prep,
-                        by = "county")
 ```
 
 ### 2 Visualizations
