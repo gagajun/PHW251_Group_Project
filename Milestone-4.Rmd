@@ -14,9 +14,9 @@ library(kableExtra)
 
 Your task is to utilize these datasets to create county-level measures to accomplish two goals.
 
-- The first is to compare county asthma ED rates with a county CES measure to assess if there appears to be a correlation. (Sadia)
+1.  The first is to compare county asthma ED rates with a county CES measure to assess if there appears to be a correlation. (Sadia)
 
-- The second is to compare asthma ED rates with county-level summaries for specific environmental measures to determine if those specific measures may be worth further investigation. (Yijun)
+2.  The second is to compare asthma ED rates with county-level summaries for specific environmental measures to determine if those specific measures may be worth further investigation. (Yijun)
 
 #Data import
 
@@ -38,11 +38,11 @@ chhs_asthma <- read_csv("https://github.com/PHW290/phw251_projectdata/raw/refs/h
 
 We selected the following columns from each data and joined them together:
 
-- ces_measure: pm2.5, drinking water, poverty
+- ces_measure: pm2.5, drinking_water, haz_waste
 
 - ces_scores_demog: ces_4_0_score
 
-- chhs_asthma: age_adjusted ED visit rate, year = 2020, total population
+- chhs_asthma: age_adjusted ED visit rate, most recent year = 2020, total population
 
 ```{r}
 # data cleaning for ces_measure: uniform county name & recategorize to county level
@@ -51,7 +51,7 @@ ces_measure_prep <- ces_measure %>%
   group_by(county) %>% 
   summarise(avg_pm2_5 = mean(pm2_5, na.rm = TRUE),
             avg_drinking_water = mean(drinking_water, na.rm = TRUE),
-            avg_poverty = mean(poverty, na.rm = TRUE))
+            avg_haz_waste = mean(haz_waste, na.rm = TRUE))
 
 # data cleaning for ces_scores_demog: uniform county name & recategorize to county level
 ces_scores_demog_prep <- ces_scores_demog %>% 
@@ -69,25 +69,14 @@ chhs_asthma_prep <- chhs_asthma %>%
          year == 2020) %>% 
   select(county, age_adjusted_ed_visit_rate)
 
-# combine ces data, by census_tract
-# ces_combined <- inner_join(x = ces_scores_demog_prep,
-#                            y = ces_measure_prep,
-#                            by = "census_tract") %>% 
-#   select(-county.y) %>% 
-#   rename(county = county.x) %>% 
-#   select(county, total_population, ces_4_0_score, asthma, pm2_5)
+# Join 3 data sets
+data_joined = left_join(x = chhs_asthma_prep,
+                        y = ces_scores_demog_prep,
+                        by = "county")
 
-
-# categorize the combined ces data into state level
-# ces_combined_cat <- ces_combined %>% 
-#   group_by(county) %>% 
-#   summarise(population = sum(total_population, na.rm = TRUE),
-#             avg_ces_score = weighted.mean(ces_4_0_score,
-#                                           w = total_population,
-#                                           na.rm = TRUE),
-#             avg_asthma_rates = weighted.mean(asthma,
-#                                           w = total_population,
-#                                           na.rm = TRUE))
+data_joined = left_join(x = data_joined,
+                        y = ces_measure_prep,
+                        by = "county")
 ```
 
 ### 2 Visualizations
@@ -96,17 +85,47 @@ chhs_asthma_prep <- chhs_asthma %>%
 
 - One print quality plot or chart as requested in scenario
 
-#### Print Quality Table (Yijun)
+#### 2.1 Print Quality Table (Yijun)
 
-compare asthma ED rates with county-level summaries for specific environmental measure (PM2.5)
+Research question 2: compare asthma ED rates with county-level summaries for specific environmental measures (PM 2.5; Drinking Water; and Hazardous Waste) to determine if those specific measures may be worth further investigation.
 
 ```{r}
+envir_measure = c("PM 2.5", "Drinking Water", "Hazardous Waste")
+correlation = c(
+  cor(data_joined$age_adjusted_ed_visit_rate,
+      data_joined$avg_pm2_5,
+      use = "complete.obs"),
+  cor(data_joined$age_adjusted_ed_visit_rate,
+      data_joined$avg_drinking_water,
+      use = "complete.obs"),
+  cor(data_joined$age_adjusted_ed_visit_rate,
+      data_joined$avg_haz_waste,
+      use = "complete.obs"))
 
+p_value = c(
+  cor.test(data_joined$age_adjusted_ed_visit_rate,
+           data_joined$avg_pm2_5)$p.value,
+  cor.test(data_joined$age_adjusted_ed_visit_rate,
+           data_joined$avg_drinking_water)$p.value,
+  cor.test(data_joined$age_adjusted_ed_visit_rate,
+           data_joined$avg_haz_waste)$p.value)
+
+table1 <- tibble(envir_measure, correlation, p_value) 
+
+kable(table1,
+      col.names = c("Envirenmental Measures", "Pearson Correlation", "p-value"),
+      digits = c(0,2,3),
+      align = "lcc",
+      caption = "Correlation between Asthma ED Visit Rates and 3 Environmental Measures in California Counties") %>% 
+  kable_styling(full_width = FALSE)
+      
 ```
 
-Interpretation:
+Interpretation: The age-adjusted asthma ED visit rate showed weak correlations with PM2.5 (r = -0.07), Drinking Water (r = 0.07), and Hazardous Waste (r = -0.18), and none of these correlations were statistically significant (all p \> 0.05). Based on this county-level analysis, there is no strong evidence of a association between asthma ED visit rates and these 3 environmental measures.
 
-#### Print quality plot (Sadia)
+#### 2.2 Print quality plot (Sadia)
+
+Rsearch question 1: compare county asthma ED rates with a county CES measure to assess if there appears to be a correlation.
 
 ```{r}
 
