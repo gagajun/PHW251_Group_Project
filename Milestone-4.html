@@ -590,11 +590,6 @@ measure to assess if there appears to be a correlation. (Sadia)</p></li>
 summaries for specific environmental measures to determine if those
 specific measures may be worth further investigation. (Yijun)</p></li>
 </ol>
-<p>#Data import</p>
-<pre class="r"><code># Read data and clean the variable names
-ces_measure &lt;- read_csv(&quot;https://github.com/PHW290/phw251_projectdata/raw/refs/heads/main/scenario_3/calenviroscreen_measures_2021.csv&quot;) %&gt;% clean_names()
-ces_scores_demog &lt;- read_csv(&quot;https://github.com/PHW290/phw251_projectdata/raw/refs/heads/main/scenario_3/calenviroscreen_scores_demog_2021.csv&quot;) %&gt;% clean_names()
-chhs_asthma &lt;- read_csv(&quot;https://github.com/PHW290/phw251_projectdata/raw/refs/heads/main/scenario_3/chhs_asthma_ed.csv&quot;) %&gt;% clean_names()</code></pre>
 </div>
 <div id="final-datasets-for-creation-of-visualization" class="section level3">
 <h3>1 Final datasets for creation of visualization</h3>
@@ -639,13 +634,9 @@ chhs_asthma_prep &lt;- chhs_asthma %&gt;%
   select(county, age_adjusted_ed_visit_rate)
 
 # Join 3 data sets
-data_joined = left_join(x = chhs_asthma_prep,
-                        y = ces_scores_demog_prep,
-                        by = &quot;county&quot;)
-
-data_joined = left_join(x = data_joined,
-                        y = ces_measure_prep,
-                        by = &quot;county&quot;)</code></pre>
+data_joined &lt;- chhs_asthma_prep %&gt;% 
+  left_join(y = ces_scores_demog_prep, by = &quot;county&quot;) %&gt;% 
+  left_join(y = ces_measure_prep, by = &quot;county&quot;)</code></pre>
 </div>
 <div id="visualizations" class="section level3">
 <h3>2 Visualizations</h3>
