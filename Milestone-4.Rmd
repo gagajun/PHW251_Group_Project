@@ -18,10 +18,8 @@ Your task is to utilize these datasets to create county-level measures to accomp
 
 2.  The second is to compare asthma ED rates with county-level summaries for specific environmental measures to determine if those specific measures may be worth further investigation. (Yijun)
 
-#Data import
-
-```{r message=FALSE}
-# Read data and clean the variable names
+```{r message=FALSE, echo=FALSE}
+# Data import and clean the variable names
 ces_measure <- read_csv("https://github.com/PHW290/phw251_projectdata/raw/refs/heads/main/scenario_3/calenviroscreen_measures_2021.csv") %>% clean_names()
 ces_scores_demog <- read_csv("https://github.com/PHW290/phw251_projectdata/raw/refs/heads/main/scenario_3/calenviroscreen_scores_demog_2021.csv") %>% clean_names()
 chhs_asthma <- read_csv("https://github.com/PHW290/phw251_projectdata/raw/refs/heads/main/scenario_3/chhs_asthma_ed.csv") %>% clean_names()
