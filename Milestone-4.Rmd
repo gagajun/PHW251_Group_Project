@@ -120,10 +120,36 @@ Interpretation: The age-adjusted asthma ED visit rate showed weak correlations w
 
 #### 2.2 Print quality plot (Sadia)
 
-Rsearch question 1: compare county asthma ED rates with a county CES measure to assess if there appears to be a correlation.
+Research question 1: compare county asthma ED rates with county CES measure to assess if there appears to be a correlation.
 
 ```{r}
+
+# Pearson correlation between county CES score and asthma ED rate
+
+ces_cor <- cor.test(data_joined$avg_ces_score,
+                    data_joined$age_adjusted_ed_visit_rate)
+ces_cor$estimate   # correlation (r)
+ces_cor$p.value    # p-value
+
+# scatterplot (Sierra County removed due to no 2020 asthma ED rate)
+
+data_joined %>%
+  filter(!is.na(age_adjusted_ed_visit_rate)) %>%
+  ggplot(aes(x = avg_ces_score, y = age_adjusted_ed_visit_rate)) +
+  geom_point(color = "pink", size = 2.5) +
+  geom_smooth(method = "lm", formula = y ~ x, color = "gray") +
+  labs(
+    title = "Asthma ED Visit Rates vs. CalEnviroScreen Score\nby California County, 2020",
+    subtitle = "Pearson r = 0.26, p = 0.047 (n = 57 counties)",
+    x = "CalEnviroScreen 4.0 Score\n(Population-Weighted County Average)",
+    y = "Age-Adjusted Asthma ED Visits\nper 10,000 Residents",
+    caption = "Line shows linear fit with 95% confidence band. Sierra County excluded (no 2020 data).\nSources: OEHHA CalEnviroScreen 4.0; CHHS Asthma ED Visit Rates by County.") +
+  theme_minimal() +
+  theme(plot.title   = element_text(face = "bold"),
+        plot.caption = element_text(hjust = 0))
 
 ```
 
 interpretation:
+
+This scatterplot compares each California county's population-weighted CalEnviroScreen 4.0 score with its age-adjusted asthma ED visit rate in 2020. It demonstrates a weak positive correlation (r = 0.26, p = 0.047) as counties with greater cumulative environmental burden tended to have slightly higher asthma ED rates. However, the points are widely scattered around the trend line, and some of the highest asthma ED rates (above 40 per 10,000) occurred in counties with below-average CES scores. This suggests that the overall CES score alone is not a strong predictor of county asthma ED rates and that specific environmental exposures and other county factors should be examined.
